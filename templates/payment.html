@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <title>Yoga Class Payment Form</title>
+    <link rel="icon" href="yoga.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        form {
+           width: 400px;
+           margin: auto;
+           padding: 10px;
+           background-color: white; /* Add a solid background color to the form */
+           border: 1px solid rgb(0, 0, 0);
+           border-radius: 10px;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a box shadow around the form */
+            }
+        body {
+            background-image: url("https://media.istockphoto.com/id/847300254/photo/calming-yoga.jpg?b=1&s=170667a&w=0&k=20&c=1I1Z1f9cYT5_gtjuPd1OtFhRSHbJ-XIUflUyeVtmr5o=");
+            background-size: cover;
+            background-position: center;
+              }
+        button {
+           border-radius: 10px;
+        }
+
+        button:hover {
+             background-color: #00ff22;
+            }
+
+    </style>
+</head>
+<body>
+    <h1 class="text-center">Yoga Class Payment Form</h1>
+    <p class="text-center">Enter your credit card information to complete your payment.</p>
+    {% if error %}
+    <p class="text-center text-danger">{{ error }}</p>
+    {% endif %}
+    {% if success %}
+    <p class="text-center text-success">{{ success }}</p>
+    {% endif %}
+    <!-- payment.html -->
+    <form action="/validate" method="POST">
+        <div class="form-group">
+            <label for="credit_card_number">Credit Card Number:</label>
+            <input type="text" id="credit_card_number" name="credit_card_number" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="card_name">Card Name:</label>
+            <input type="text" id="card_name" name="card_name" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</body>
+</html>
